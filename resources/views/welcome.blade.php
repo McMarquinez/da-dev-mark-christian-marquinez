@@ -7,6 +7,7 @@
     <title>Laravel-React: TO DO APP</title>
 </head>
 <body>
+    <div id="todo-app"></div>
     @viteReactRefresh
     @vite('resources/js/app.js')
 </body>
