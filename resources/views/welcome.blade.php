@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Laravel-React: TO DO APP</title>
 </head>
-<body>
+<body style="background-color: #f5f4f1">
     <div id="todo-app"></div>
     @viteReactRefresh
     @vite('resources/js/app.js')
