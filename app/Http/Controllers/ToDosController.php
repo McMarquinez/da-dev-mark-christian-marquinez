@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Task;
+use App\Http\Resources\TaskResource;
 
 class ToDosController extends Controller
 {
@@ -11,7 +12,7 @@ class ToDosController extends Controller
     public function index()
     {
         $tasks = Task::all();
-        return $tasks;
+        return TaskResource::collection($tasks);
     }
 
     
@@ -23,17 +24,11 @@ class ToDosController extends Controller
 
         $task = Task::create([
             'task' => $request->input('task'),
+            'status' => 'active',
         ]);
 
-        return $task;
+        return new TaskResource($task);
     }
-
-    
-    public function show(string $id)
-    {
-        //
-    }
-
     
     public function update(Request $request, string $id)
     {
@@ -46,7 +41,7 @@ class ToDosController extends Controller
         $task->status = 'done';
         $task->save();
 
-        return $task;
+        return new TaskResource($task);
     }
 
     
